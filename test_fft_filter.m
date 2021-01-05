@@ -47,7 +47,7 @@ dF = Fs/Ns;
 f = ((-Fs/2) : dF : (Fs/2-dF))';
 t = dt*(0:Ns-1)';
 
-subplot(3,3,9);
+subplot(3,3,8);
 plot(f,BPF);
 title('BP-filter')
 grid on;
@@ -61,6 +61,16 @@ subplot(3,3,6);
 plot(f,abs(spectrum_post));
 title('Spectrum filtered')
 grid on;
+
+%figure(2);
+subplot(3,3,9);
+fz = f(eN : Ns-eN);
+sz = abs(spectrum_pre(eN : Ns-eN));
+plot(fz,sz);
+axis([-12 12]);
+title('Spectrum original zoomed')
+grid on;
+%figure(1);
 
 % remove extra polation
 
